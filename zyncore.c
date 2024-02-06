@@ -23,6 +23,7 @@
  * ******************************************************************
  */
 
+#include "gpiod_callback.h"
 #include "zyncontrol.h"
 #include "zynmidirouter.h"
 #include "zynmaster.h"
@@ -33,6 +34,11 @@ int init_zyncore() {
 	if (!init_zyncontrol()) return 0;
 	if (!init_zynmidirouter()) return 0;
 	if (!init_zynmaster_jack()) return 0;
+	return 1;
+}
+
+int init_zyncore_minimal() {
+	//gpiod_init_callbacks();
 	return 1;
 }
 
